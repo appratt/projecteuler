@@ -13,15 +13,27 @@ def fibonacci(upperBound):
 	term1 = 1;
 	term2 = 2;
 	term3 = 0;
+	sumEvenFibonacci = 0;
 
-	while term3 < upperBound:
+	while term3 <= upperBound:
 		term3 = term1 + term2;
 		print "Term 3 is %d" % term3
-		print "Fibonacci is %d" % term3
-		term1 = term2;
-		print "Term1 is %d" % term1
-		term2 = term3;
-		print "Term2 is %d" % term2
+		if term3 <= upperBound:
+			print "Fibonacci is %d" % term3
+			if (term3 % 2 == 0):
+				sumEvenFibonacci = sumEvenFibonacci + term3
+				print "The sum of the even Fibonacci numbers is %d" % sumEvenFibonacci
+				term1 = term2;
+				term2 = term3;
+			else:
+				term1 = term2;
+				#print "Term1 is %d" % term1
+				term2 = term3;
+				#print "Term2 is %d" % term2
+		else:
+			sumEvenFibonacci = sumEvenFibonacci + 2
+			print "FINAL sum of even Fibonacci numbers is %d" % sumEvenFibonacci
+			pass
 
 fibonacci(4000000);
 
